@@ -1,0 +1,61 @@
+#up {
+	list-style-image: url('chrome://zotero/skin/citation-up.png');
+}
+
+#up[disabled="true"] {
+	list-style-image: url('chrome://zotero/skin/citation-up-gray.png');
+}
+
+#down {
+	list-style-image: url('chrome://zotero/skin/citation-down.png');
+}
+
+#down[disabled="true"] {
+	list-style-image: url('chrome://zotero/skin/citation-down-gray.png');
+}
+
+
+#add {
+	list-style-image: url('chrome://zotero/skin/citation-add.png');
+}
+
+#add[disabled="true"] {
+	list-style-image: url('chrome://zotero/skin/citation-add-gray.png');
+}
+
+#remove {
+	list-style-image: url('chrome://zotero/skin/citation-delete.png');
+}
+
+#remove[disabled="true"] {
+	list-style-image: url('chrome://zotero/skin/citation-delete-gray.png');
+}
+
+#citation-buttons > toolbarbutton
+{
+	margin: 2px 0 2px 4px !important;
+	padding: 0 !important;
+}
+
+#citation-buttons > toolbarbutton > .toolbarbutton-text
+{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#prefix, #suffix {
+	width: 200px;
+}
+
+#tree-locator {
+	width: 60px;
+}
+
+#item-locator {
+	max-width:100px;
+}
+
+#editor {
+	margin-top: 10px;
+	max-height: 100px;
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://zotero/skin/zotero.css" type="text/css"?>
+<?xml-stylesheet href="chrome://zotero/skin/about.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://zotero/locale/about.dtd">
+
+<dialog
+	id="zotero-about"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	orient="vertical"
+	buttons="accept"
+	buttonlabelaccept="&zotero.about.close;"
+	width="300px;"
+	onload="moveToAlertPosition(); sizeToContent();"
+	ondialogaccept="return true;"
+	title="درباره پژوهیار"
+	>
+	
+	<script src="include.js"/>
+			
+	<vbox id="aboutcontent" width="400px">
+		<label id="name" value="&zotero.about.crcis.programName;"/>
+		<label class="text-link" href="http://pajoohyar.ir" value="http://pajoohyar.ir"/>
+		<label id="version" value="&zotero.version; "/>
+		<script>
+			document.getElementById('version').value += Zotero.version;
+		</script>
+		<label id="firstParagraph">
+			«پژوهیار» نگارش تغییریافته‌ای از Zotero و اولین نرم‌افزار مدیریت استناددهی رایگان و متن‌باز با قابلیت پشتیبانی از زبان فارسی است.این نرم افزار پژوهشگران را در تحقیق و مستند‌سازی نتایج پژوهش یاری می‌کند. پژوهیار، ابزاری پژوهشی قدرتمندی است که به کاربران کمک می‌کند تا گردآوری، سازماندهی و تجزیه و تحلیل منابع علمی خود را به آسانی انجام دهند و سپس بر اساس شیوه‌نامه استناددهی مورد نظر خود، به مستندسازی نتایج پژوهش در قالب کتاب، پایان‌نامه یا مقاله بپردازند.
+		</label>
+		<label>
+			این نرم‌افزار از سوی مرکز تحقیقات کامپیوتری علوم اسلامی (نور) با قابلیت مدیریت استناددهی در سه زبان فارسی، انگلیسی و عربی ارائه شده است. 
+		</label>
+		<label></label>
+				<hbox>
+				<vbox>
+				<label class="subhead" value="&zotero.about.additionalSoftware;"/>
+				<vbox class="subcontent">
+					<label class="text-link" href="http://www.zotero.org" value="Zotero"/>
+					<label class="text-link" href="http://www.famfamfam.com/lab/icons/silk/" value="famfamfam (small icons)"/>
+					<label class="text-link" href="http://appscript.sourceforge.net/py-appscript/" value="py-appscript (MacWord plug-in IPC)"/>
+					<label class="text-link" href="http://simile.mit.edu/timeline/" value="SIMILE Project (Timeline)"/>
+					<label class="text-link" href="http://www.w3.org/2005/ajar/tab" value="Tabulator (RDF parser)"/>
+					<label class="text-link" href="http://tango.freedesktop.org/Tango_Desktop_Project" value="Tango Desktop Project (pref icons)"/>
+					<label class="text-link" href="http://tinymce.moxiecode.com/" value="TinyMCE (rich-text editing)"/>
+					<label class="text-link" href="http://www.dbai.tuwien.ac.at/user/pollak/webpagedump/" value="WebPageDump (snapshot code)"/>
+					<label class="text-link" href="http://www.foolabs.com/xpdf/" value="Xpdf (pdftotext)"/>
+				</vbox>
+				</vbox>
+				<vbox>
+				<label class="subhead" value="پردازش استناد و کتابنامه"/>
+				<vbox class="subcontent">
+					<label class="text-link" href="http://citationstyles.org/" value="Citation Style Language"/>
+					<label class="text-link" href="http://bitbucket.org/fbennett/citeproc-js/" value="citeproc-js (Frank Bennett)"/>
+				</vbox>
+				</vbox>
+				</hbox>
+		
+	</vbox>
+	
+	
+	
+</dialog>	

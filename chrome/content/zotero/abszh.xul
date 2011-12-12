@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://zotero/skin/zotero.css" type="text/css"?>
+<?xml-stylesheet href="chrome://zotero/skin/about.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://zotero/locale/about.dtd">
+
+<dialog
+	id="zotero-about"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	orient="vertical"
+	buttons="accept"
+	buttonlabelaccept="&zotero.about.close;"
+	width="300px;"
+	onload="abszhTest.onLoad()"
+	ondialogaccept="return true;"
+	title="پنجره تست"
+	>
+	
+	<script src="include.js"/>
+	<script src="abszh.js"/>
+			
+	<vbox id="aboutcontent" width="400px">
+		<label id="name" value="&zotero.about.crcis.programName;"/>
+		<label class="text-link" href="http://pajoohyar.ir" value="http://pajoohyar.ir"/>
+		<label id="version" value="&zotero.version; "/>
+		<script>
+			;
+		</script>
+		<label id="firstParagraph">
+		این پنجره برای تست ایجاد شده است.
+		</label>
+		<label id="secondParagraph">
+		در این بخش می‌توان مطالبی قرار داد.
+		</label>
+		<button label="updateNoor" oncommand="abszhTest.updateNoorLibrary()"/>
+		<label></label>
+		
+		
+	</vbox>
+	
+	
+	
+</dialog>	
