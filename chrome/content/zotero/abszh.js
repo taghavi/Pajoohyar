@@ -1,3 +1,5 @@
+//this comment added just for test
+
 var abszhTest= new function() {
 	this.onLoad=function onLoad() {
 		moveToAlertPosition(); 
@@ -68,7 +70,8 @@ var abszhTest= new function() {
 
 		Zotero.DB.beginTransaction();
 		Zotero.showZoteroPaneProgressMeter("doing something");
-
+	
+		
 		try {
 		
 		
