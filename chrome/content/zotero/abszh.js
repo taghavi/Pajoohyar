@@ -8,7 +8,31 @@ var abszhTest= new function() {
 		//this.updateNoorLibrary();
 	}
 	
+	var _timer;
+	var nnn=0;
+	
+	this.timerThread=function timerThread() {
+		Zotero.sleep(1);
+		nnn=nnn+1;
+		Zotero.Utilities.writeToDiagFile("timer value is: "+nnn+"\r\n");
+		_timer=window.setTimeout("abszhTest.timerThread()",10);
+		
+	}
+	
 	this.updateNoorLibrary= function updateNoorLibrary() {
+		Zotero.showZoteroPaneProgressMeter("در حال نصب کتابخانه نور. لطفا چند لحظه صبر کنید.");
+		//_timer=window.setTimeout("abszhTest.timerThread()",10);
+		Zotero.sleep(100);
+		// for (var i=0; i<1000000; i++) {
+			// for (var j=0; j<100; j++) {
+				// var m=i*j;
+			// }
+		// }
+		
+		// clearTimeout(_timer);
+		// Zotero.hideZoteroPaneOverlay();
+		
+	
 		var noorVersion=Zotero.Schema.getDBVersion('noorlibrary');
 		if (!noorVersion) {
 			Zotero.Utilities.writeToDiagFile("Noor library does not exist in database yet.\r\n");
@@ -67,24 +91,26 @@ var abszhTest= new function() {
 		noorGroup.editable=true;
 		noorGroup.filesEditable=false;
 		noorGroup.save();
+		
+		Zotero.sleep(100);
 
 		Zotero.DB.beginTransaction();
-		Zotero.showZoteroPaneProgressMeter("doing something");
 	
-		
+	
+		var n=0;
 		try {
 		
 		
 			var contents="";
 		
-			var n=0;
+			
 			do {
 				//break;
 				var creators=new Array();
 				n++;
 				var item=new Object();
 				hasmore = istream.readLine(line);
-				if (n>=1000) hasmore=false;
+				if (n>=10000) hasmore=false;
 				var parts=line.value.split(String.fromCharCode(9));
 
 				var sqlColumns = [];
@@ -123,6 +149,7 @@ var abszhTest= new function() {
 					var k = this.key;
 					
 					var insertID = Zotero.DB.query(sql, sqlValues);
+					Zotero.sleep(1);
 				}
 				catch (e) {
 					if (l &&
@@ -152,7 +179,7 @@ var abszhTest= new function() {
 				for (fieldName in item) {
 					var value=item[fieldName];
 					var fieldID=Zotero.ItemFields.getID(fieldName);
-					Zotero.Utilities.writeToDiagFile("fieldName is: "+fieldName+" fieldID is: "+fieldID+" itemID is: "+itemID+"\r\n");
+					//Zotero.Utilities.writeToDiagFile("fieldName is: "+fieldName+" fieldID is: "+fieldID+" itemID is: "+itemID+"\r\n");
 					if ((!value) || (!fieldID)) {
 						continue;
 					}
@@ -178,12 +205,12 @@ var abszhTest= new function() {
 					}
 
 					valueStatement.reset();
-					Zotero.Utilities.writeToDiagFile("valueID is: "+valueID+" value is: "+value+"\r\n");
+					//Zotero.Utilities.writeToDiagFile("valueID is: "+valueID+" value is: "+value+"\r\n");
 					
 					if (!valueID) {
 						valueID = Zotero.ID.get('itemDataValues');
 						insertValueStatement.bindInt32Parameter(0, valueID);
-						Zotero.Utilities.writeToDiagFile("again valueID is: "+valueID+" value is: "+value+"\r\n");
+						//Zotero.Utilities.writeToDiagFile("again valueID is: "+valueID+" value is: "+value+"\r\n");
 						
 						switch (dataType) {
 							case 32:
@@ -212,7 +239,7 @@ var abszhTest= new function() {
 					insertStatement.bindInt32Parameter(1, fieldID);
 					insertStatement.bindInt32Parameter(2, valueID);
 
-					Zotero.Utilities.writeToDiagFile("here fieldID is: "+fieldID+" itemID is: "+itemID+" value ID is: "+valueID+ "sql is: "+insertStatement+"\r\n");
+					//Zotero.Utilities.writeToDiagFile("here fieldID is: "+fieldID+" itemID is: "+itemID+" value ID is: "+valueID+ "sql is: "+insertStatement+"\r\n");
 					
 					try {
 						insertStatement.execute();
@@ -275,7 +302,7 @@ var abszhTest= new function() {
 		
 		noorGroup.editable=false;
 		noorGroup.save();
-		Zotero.hideZoteroPaneOverlay();
+		
 		
 		var sql="";
 		//sql = "SELECT * FROM itemNotes";
@@ -291,9 +318,12 @@ var abszhTest= new function() {
 		
 		
 		sql = "SELECT * FROM itemDataValues";
-		this.runQuery(sql);
-
+		//this.runQuery(sql);
 		
+//		clearTimeout(this._timer);
+		Zotero.hideZoteroPaneOverlay();
+		Zotero.Utilities.writeToDiagFile("n is: "+n+"\r\n");
+
 	}
 	
 	
@@ -308,7 +338,7 @@ var abszhTest= new function() {
 				str+=(j+": "+result[i][j]+"\r\n");
 			}
 		}
-		Zotero.Utilities.writeToDiagFile(str);
+		//Zotero.Utilities.writeToDiagFile(str);
 	}	
 	//</abszh>
 	
