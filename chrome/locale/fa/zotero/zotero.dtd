@@ -1,4 +1,6 @@
-﻿<!ENTITY zotero.general.optional							"(اختیاری)">
+﻿<!ENTITY zotero.general.emailaddress                   "آدرس ایمیل:">
+<!ENTITY zotero.general.description                     "توضیحات خطای رخ داده:">
+<!ENTITY zotero.general.optional							"(اختیاری)">
 <!ENTITY zotero.general.note								"یادداشت:">
 <!ENTITY zotero.general.selectAll							"انتخاب همه">
 <!ENTITY zotero.general.deselectAll						"انتخاب هیچ‌کدام">
